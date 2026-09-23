@@ -1,85 +1,153 @@
-/*Estilos generales */
-/*Facilita el calculo de tamaños de objetos*/
-*{
-    box-sizing: border-box;
-
-:root 
-    --azul  principal: #0d6efd
-    --gris-oscuro: #062b64;
-    --azul suave: #eaf3ff;
-    --verde acento: #7ade30;
-    --texto principal: #1b1b32;
-    --texto-secundario: #615151;
-    --fondo-claro: #f5f7fb;
-    --blanco: #ffffff;
-    --sombra-suave: 0 12px 30px rgba(13, 110, 253, 0.12) ;
+/* ==========================================
+   1. VARIABLES GLOBALES (Para cambiar colores fácilmente)
+   ========================================== */
+:root {
+    --color-principal: #2563eb;       /* Azul moderno */
+    --color-secundario: #1e293b;      /* Gris oscuro / Azul noche */
+    --color-fondo-light: #f8fafc;     /* Fondo gris muy claro */
+    --color-texto: #334155;           /* Gris suave para lectura */
+    --fuente-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-{
-body
-    margin: 0;
-    font-family: "Arimo", sans-serif;
-    color: var(--texto-principal);
-    background-color: var(--fondo-claro);
+/* ==========================================
+   2. ESTILOS GENERALES Y AJUSTES DE FLUIDEZ
+   ========================================== */
+body {
+    font-family: var(--fuente-base);
+    color: var(--color-texto);
+    background-color: #ffffff;
+    /* Evita que el menú fijo 'fixed-top' tape el contenido inicial */
+    padding-top: 75px; 
+    scroll-behavior: smooth; /* Desplazamiento suave al usar el menú */
 }
 
-{
-img corch
-    max-witdh:100%
+section {
+    padding: 60px 0;
 }
 
-.seccion {
-    padding: 80px 0;
-}
-
-.seccion-clara {
-    background-color: var (--blanco);
-}
-
-.seccion-oscura {
-    color: var(--blanco);
-    background: linear-gradient(135deg, var(--azul-oscuro), #111827;
-}
-
-.seccion-titulo {
-    font-size clamp(2rem, 4vw, 2.8rem);
-    font-weight:800;
-    margin-bottom: 1rem;
-}
-
-.seccion-descripcion {
-    color: var(--texto-secundario);
-    font-size: 1.05rem;
-    max-width: 720px;
-    margin: 0 auto 2 rem auto;
-}
-
-/*Estilos para la barra de navegación */
-a:focus,
-button:focus {  
-    outline: 3px solid rgb (122, 222, 48, 0.65);
-    outline-offset: 3px;
-}
-
+/* ==========================================
+   3. ENCABEZADO Y BARRA DE NAVEGACIÓN
+   ========================================== */
 .navbar {
-    padding: 0.9 rem 0;
+    background-color: var(--color-secundario) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
-.navbar-brand {
-    font-weight: 800; 
-    color: var (--azul-oscuro);
+.navbar .nav-link {
+    font-weight: 500;
+    color: #e2e8f0 !important;
+    position: relative;
 }
 
-.nav-link {
-    font-weight: 600;
-    color: var(--texto-principal);
+/* Efecto de línea inferior al pasar el mouse por el menú */
+.navbar .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 2px;
+    left: 0;
+    background-color: var(--color-principal);
+    transition: width 0.3s ease;
 }
 
-.nav-link: hover, 
-.nav-lin.active {    
-    color: var(--azul-principal);
+.navbar .nav-link:hover::after {
+    width: 100%;
 }
 
-.navbar .btn-primary {
-    boxshadow: 0 8px 18 px rgba(13, 110, 253, 0.2);
+/* ==========================================
+   4. SECCIÓN SOBRE MÍ (Tarjeta de presentación)
+   ========================================== */
+#sobre-mi .card {
+    border: none;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto de elevación al pasar el mouse sobre la tarjeta */
+#sobre-mi .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12) !important;
+}
+
+#sobre-mi .card-img-top {
+    height: 280px;
+    object-fit: cover; /* Ajusta la foto de perfil sin deformarla */
+}
+
+/* ==========================================
+   5. CARRUSEL DE IMÁGENES (Proyectos destacados)
+   ========================================== */
+#proyectos {
+    background-color: var(--color-fondo-light);
+}
+
+.carousel {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.carousel-item img {
+    height: 450px;
+    object-fit: cover; /* Asegura que las fotos de proyectos no se estiren */
+}
+
+/* Estilo estilizado para los textos que van encima de las imágenes */
+.carousel-caption {
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 30px 20px;
+}
+
+/* ==========================================
+   6. SECCIÓN DE CONTACTO (Formulario)
+   ========================================== */
+#contacto form {
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 16px;
+}
+
+/* Efecto visual cuando el usuario escribe en los campos */
+.form-control:focus {
+    border-color: var(--color-principal);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+}
+
+/* ==========================================
+   7. BOTONES PERSONALIZADOS
+   ========================================== */
+.btn-primary {
+    background-color: var(--color-principal);
+    border-color: var(--color-principal);
+    padding: 10px 24px;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #1d4ed8; /* Un tono más oscuro al pasar el mouse */
+    border-color: #1d4ed8;
+}
+
+/* ==========================================
+   8. ADAPTACIONES MÓVILES (Responsividad extra)
+   ========================================== */
+@media (max-width: 768px) {
+    body {
+        padding-top: 65px; /* Menor espacio en móviles */
+    }
+    
+    .carousel-item img {
+        height: 250px; /* Las imágenes del carrusel se achican en celulares */
+    }
+    
+    section {
+        padding: 40px 0;
+    }
 }
