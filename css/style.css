@@ -1,25 +1,18 @@
-/* ==========================================
-   1. VARIABLES GLOBALES (Para cambiar colores fácilmente)
-   ========================================== */
-:root {
-    --color-principal: #2563eb;       /* Azul moderno */
-    --color-secundario: #1e293b;      /* Gris oscuro / Azul noche */
-    --color-fondo-light: #f8fafc;     /* Fondo gris muy claro */
-    --color-texto: #334155;           /* Gris suave para lectura */
-    --fuente-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+:root { 
+  --color-principal: #2563eb; 
+  --color-secundario: #1e293b;
+  --color-texto: #334155; 
+  --fuente-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
 }
 
-/* ==========================================
-   2. ESTILOS GENERALES Y AJUSTES DE FLUIDEZ
-   ========================================== */
-body {
-    font-family: var(--fuente-base);
-    color: var(--color-texto);
-    background-color: #ffffff;
-    /* Evita que el menú fijo 'fixed-top' tape el contenido inicial */
-    padding-top: 75px; 
-    scroll-behavior: smooth; /* Desplazamiento suave al usar el menú */
+body { 
+  font-family: var(--fuente-base); 
+  color: var(--color-texto); 
+  padding-top: 75px; 
+  scroll-behavior: smooth; 
+  background-color: transparent !important;
 }
+
 
 section {
     padding: 60px 0;
@@ -80,16 +73,12 @@ section {
 /* ==========================================
    5. CARRUSEL DE IMÁGENES (Proyectos destacados)
    ========================================== */
-#proyectos {
-    background-color: var(--color-fondo-light);
-}
 
 .carousel {
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
-
 .carousel-item img {
     height: 450px;
     object-fit: cover; /* Asegura que las fotos de proyectos no se estiren */
@@ -138,16 +127,4 @@ section {
 /* ==========================================
    8. ADAPTACIONES MÓVILES (Responsividad extra)
    ========================================== */
-@media (max-width: 768px) {
-    body {
-        padding-top: 65px; /* Menor espacio en móviles */
-    }
-    
-    .carousel-item img {
-        height: 250px; /* Las imágenes del carrusel se achican en celulares */
-    }
-    
-    section {
-        padding: 40px 0;
-    }
-}
+
